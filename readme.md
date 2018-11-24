@@ -11,7 +11,7 @@ Make sure you have a recent version of [Node.js](https://nodejs.org/) installed.
 
 ## Module Builder Setup
 
-> npm install --save-dev webpack webpack-dev-server webpack-cli
+> npm install --save-dev webpack webpack-dev-server webpack-cli html-webpack-plugin html-loader
 
 package.json
 
@@ -24,17 +24,49 @@ package.json
 
 touch webpack.config.js
 
->module.exports = {
->  entry: './src/index.js',
->  output: {
->    path: __dirname + '/dist',
->    publicPath: '/',
->    filename: 'bundle.js'
->  },
->  devServer: {
->    contentBase: './dist'
->  }
->};
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const SRC_DIR = __dirname + '/src';
+const DIST_DIR = __dirname + '/dist';
+
+module.exports = {
+  entry: [
+    SRC_DIR + '/index.html',
+  ],
+  output: {
+    path: DIST_DIR,
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(html)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'html-loader',
+          options: {minimize: true}
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: SRC_DIR + '/index.html',
+      filename: './index.html'
+    })
+  ],
+  devServer: {
+    contentBase: DIST_DIR,
+    hot: true,
+    port: 9000
+  }
+};
 
 ## Babel Setup
 
@@ -44,17 +76,14 @@ From root folder
 loader
 >npm install --save-dev babel-loader
 
-transform the React’s JSX syntax to vanilla JavaScript
 >npm install --save-dev @babel/preset-react
 
 .babelrc
 >touch .babelrc
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
-  ]
+  "presets": ["@babel/react", "@babel/typescript", ["@babel/env", { "modules": false }]]
 }
+
 
 webpack.config.js
 module: {
@@ -77,6 +106,41 @@ Try
 
 Project is running at [http://localhost:8080/](http://localhost:8080/)
 
+## SASS
+Sass compiler installation
+
+From root folder
+>npm install --save-dev mini-css-extract-plugin css-loader sass-loader node-sass
+
+New rule to webpack.config.js
+{
+  test: /\.(scss|sass|css)$/,
+  exclude: /node_modules/,
+  loaders: [
+    MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        sourceMap: true,
+        importLoaders: 1,
+        localIdentName: '[local]___[hash:base64:5]'
+      }
+    },
+  'sass-loader',
+  ]
+},
+
+Add new pluging in webpack.config.js
+
+new MiniCssExtractPlugin({
+  filename: devMode ? '[name].css' : '[name].[hash].css',
+  chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+})
+
+>md styles styles/partials
+
+>touch styles/partials/_base.scss styles/partials/_mixins.scss styles/partials/_variables.scss styles/main.scss
 
 ## React Setup
 
