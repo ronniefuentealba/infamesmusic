@@ -4,6 +4,8 @@ import * as ReactDOM from "react-dom";
 import { Hello } from "./components/Hello";
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    <Hello compiler="TS" framework="Reactjs" />,
     document.getElementById("app")
 );
+
+module.hot.accept();

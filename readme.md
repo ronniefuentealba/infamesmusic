@@ -130,25 +130,6 @@ ReactDOM.render(
     document.getElementById("example")
 );
 
->touch ~rootproject/index.html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Hello React!</title>
-    </head>
-    <body>
-        <div id="example"></div>
-
-        <!-- Dependencies -->
-        <script src="./node_modules/react/umd/react.development.js"></script>
-        <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
-
-        <!-- Main -->
-        <script src="./dist/bundle.js"></script>
-    </body>
-</html>
-
 webpack.config.js
 {
   ...
@@ -177,3 +158,23 @@ webpack.config.js
     }
     ...
 }
+
+## React hot Module 
+>npm install --save-dev react-hot-loader
+
+You have to add some more configuration to your Webpack configuration file.
+
+webpack.config.js
+
+const webpack = require('webpack');
+
+plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  }
+
+>npm i --save-dev @types/webpack-env
