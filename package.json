@@ -4,9 +4,11 @@
   "description": "Infames Music Label App",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p --mode production",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base src/",
+    "build-prod": "webpack -p && cp src/index.html dist/index.html",
+    "lint": "esw webpack.config.* src tools --color",
+    "lint:watch": "npm run lint -- --watch",
+    "start": "npm-run-all --parallel build lint:watch"
   },
   "repository": {
     "type": "git",
@@ -27,10 +29,14 @@
     "@types/webpack-env": "^1.13.6",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
+    "eslint": "^5.9.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.10.0",
+    "npm-run-all": "^4.1.5",
     "react-hot-loader": "^4.3.12",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",

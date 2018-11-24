@@ -285,3 +285,60 @@ plugins: [
   }
 
 >npm i --save-dev @types/webpack-env
+
+## ESLINT
+
+[http://www.zsoltnagy.eu/use-eslint-like-a-pro-with-es6-and-react/](http://www.zsoltnagy.eu/use-eslint-like-a-pro-with-es6-and-react/)
+
+>npm install eslint eslint-plugin-react eslint-watch --save-dev
+
+The file .eslintrc is a JSON file responsible for configuring your individual linting rules. 
+
+{
+    "plugins": [
+        "react"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "es6":     true,
+        "browser": true,
+        "node":    true,
+        "mocha":   true
+    },   
+    "extends": [
+        "eslint:recommended", 
+        "plugin:react/recommended"
+    ],    
+    "rules": {
+    }
+}
+ 
+
+###Linting in the console
+We have already installed the eslint-watch npm module. It’s time to use it.
+
+Add "lint" and "lint:watch" to your package.json:
+ 
+  "scripts": {
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base src/",
+    "build-prod": "webpack -p && cp src/index.html dist/index.html",
+    "lint": "esw webpack.config.* src tools --color",
+    "lint:watch": "npm run lint -- --watch"
+  },
+
+>npm install npm-run-all --save-dev
+
+"build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base src/",
+    "build-prod": "webpack -p && cp src/index.html dist/index.html",
+    "lint": "esw webpack.config.* src tools --color",
+    "lint:watch": "npm run lint -- --watch",
+    "start": "npm-run-all --parallel build lint:watch"
+
+Run the app
+>npm start
