@@ -6,7 +6,7 @@ import "./styles/main.scss"
 import { Hello } from "./components/Hello";
 
 ReactDOM.render(
-    <Hello compiler="TS" framework="React" />,
+    <Hello compiler="TypeScript" framework="React" />,
     document.getElementById("app")
 );
 

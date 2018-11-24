@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const SRC_DIR = __dirname + '/src';
 const DIST_DIR = __dirname + '/dist';
@@ -17,13 +17,14 @@ module.exports = {
     new ExtractTextPlugin('style.css')
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(html)$/,
         exclude: /node_modules/,
         use: {
           loader: 'html-loader',
-          options: {minimize: true}
+          options: {
+            minimize: true
+          }
         }
       },
       {
@@ -45,7 +46,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".scss", ".css",".ts", ".tsx", ".js", ".jsx"]
+    extensions: [".scss", ".css", ".ts", ".tsx", ".js", ".jsx"]
   },
   output: {
     path: DIST_DIR,
