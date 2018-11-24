@@ -109,8 +109,11 @@ Project is running at [http://localhost:8080/](http://localhost:8080/)
 ## SASS
 Sass compiler installation
 
+[https://www.codementor.io/valentinrad/roll-your-own-tiny-react-environment-using-webpack-babel-and-sass-ei70wyhjl](https://www.codementor.io/valentinrad/roll-your-own-tiny-react-environment-using-webpack-babel-and-sass-ei70wyhjl)
+
+
 From root folder
->npm install --save-dev mini-css-extract-plugin css-loader sass-loader node-sass
+>npm install --save-dev mini-css-extract-plugin css-loader sass-loader node-sass postcss-loader 
 
 New rule to webpack.config.js
 {
@@ -141,6 +144,46 @@ new MiniCssExtractPlugin({
 >md styles styles/partials
 
 >touch styles/partials/_base.scss styles/partials/_mixins.scss styles/partials/_variables.scss styles/main.scss
+
+### Minimizing for Production
+run
+
+>npm i -D uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin
+
+webpack.config.js
+
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+module.exports = {
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
+      }
+    ]
+  }
+}
 
 ## React Setup
 

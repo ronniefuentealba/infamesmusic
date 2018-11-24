@@ -1,11 +1,21 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const SRC_DIR = __dirname + '/src';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {
   entry: [SRC_DIR + '/index.tsx'],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: SRC_DIR + '/index.html',
+      filename: './index.html'
+    }),
+    new ExtractTextPlugin('style.css')
+  ],
   module: {
     rules: [
       {
@@ -16,23 +26,13 @@ module.exports = {
           options: {minimize: true}
         }
       },
-      // {
-      //   test: /\.(scss|sass|css)$/,
-      //   exclude: /node_modules/,
-      //   loaders: [
-      //     MiniCssExtractPlugin.loader,
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         modules: true,
-      //         sourceMap: true,
-      //         importLoaders: 1,
-      //         localIdentName: '[local]___[hash:base64:5]'
-      //       }
-      //     },
-      //   'sass-loader',
-      //   ]
-      // },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader!sass-loader",
+        })
+      },
       {
         test: /\.tsx?$/,
         loader: 'babel-loader',
@@ -45,7 +45,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    extensions: [".scss", ".css",".ts", ".tsx", ".js", ".jsx"]
   },
   output: {
     path: DIST_DIR,
@@ -54,17 +54,6 @@ module.exports = {
   },
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: SRC_DIR + '/index.html',
-      filename: './index.html'
-    }),
-    // new MiniCssExtractPlugin({
-    //   filename: devMode ? '[name].css' : '[name].[hash].css',
-    //   chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-    // })
-  ],
   devServer: {
     contentBase: DIST_DIR,
     hot: true
