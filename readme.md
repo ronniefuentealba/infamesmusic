@@ -359,3 +359,5 @@ Enzyme however requires a separate installation, so run:
 npm i  @types/enzyme enzyme-to-json -D
 
 npm i -D @types/enzyme-adapter-react-16
+
+npm install @types/react-test-renderer

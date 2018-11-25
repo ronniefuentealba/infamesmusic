@@ -15,7 +15,7 @@ module.exports = {
       template: SRC_DIR + '/index.html',
       filename: './index.html'
     }),
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('css/style.css')
   ],
   module: {
     rules: [{
@@ -52,7 +52,7 @@ module.exports = {
   output: {
     path: DIST_DIR,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'js/bundle.js'
   },
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",

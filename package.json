@@ -2,11 +2,11 @@
   "name": "infamesmusic",
   "version": "1.0.0",
   "description": "Infames Music Label App",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "build": "webpack --mode=development -d && webpack-dev-server --hot --inline --colors --progress --content-base src/",
     "build-prod": "webpack -p --mode=production",
-    "lint": "esw webpack.config.* src tools --color",
+    "lint": "esw webpack.config.* ./ tools --color",
     "lint:watch": "npm run lint -- --watch",
     "start": "npm-run-all --parallel build lint:watch",
     "test": "jest --config jest.config.js"
@@ -22,17 +22,6 @@
     "url": "https://github.com/ronniefuentealba/infamesmusic/issues"
   },
   "homepage": "https://github.com/ronniefuentealba/infamesmusic#readme",
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
@@ -71,6 +60,7 @@
   "dependencies": {
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
+    "@types/react-test-renderer": "^16.0.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }
