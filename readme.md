@@ -213,7 +213,7 @@ touch tsconfig.json
 
 >touch app/hello.tsx
 
-import * as React from "react";
+import React from "react";
 
 export interface HelloProps { compiler: string; framework: string; }
 
@@ -227,8 +227,8 @@ export class Hello extends React.Component<HelloProps, {}> {
 
 >touch index.tsx
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 
 import { Hello } from "./components/Hello";
 

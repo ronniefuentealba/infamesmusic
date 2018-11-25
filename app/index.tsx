@@ -1,11 +1,10 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
-import './styles/main.scss'
-import { Hello } from "./common/components/hello";
+import React from "react";
+import ReactDOM from "react-dom";
+import './styles/main.scss';
+import { App } from './app';
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
+    <App />,
     document.getElementById("app")
 );
 
