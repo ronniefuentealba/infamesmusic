@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const SRC_DIR = __dirname + '/src';
+const SRC_DIR = __dirname + '/app';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {

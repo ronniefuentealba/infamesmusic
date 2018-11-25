@@ -1,6 +1,6 @@
 module.exports = {
     "roots": [
-        "<rootDir>/src"
+        "<rootDir>/app"
     ],
     "transform": {
         "^.+\\.tsx?$": "ts-jest"
@@ -15,8 +15,8 @@ module.exports = {
         "node"
     ],
     "moduleNameMapper": {
-        "Hello": "<rootDir>/src/components/hello.tsx"
+        "Hello": "<rootDir>/app/components/hello.tsx"
     },
     "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.tsx",
+    "setupTestFrameworkScriptFile": "<rootDir>/app/setupEnzyme.tsx",
 }

@@ -27,7 +27,7 @@ touch webpack.config.js
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const SRC_DIR = __dirname + '/src';
+const SRC_DIR = __dirname + '/app';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {
@@ -205,13 +205,13 @@ touch tsconfig.json
 >        "jsx": "react"
 >    },
 >    "include": [
->        "./src/**/*"
+>        "./app/**/*"
 >    ]
 >}
 
->mkdir src/components
+>mkdir app/components
 
->touch src/hello.tsx
+>touch app/hello.tsx
 
 import * as React from "react";
 
@@ -326,17 +326,17 @@ We have already installed the eslint-watch npm module. It’s time to use it.
 Add "lint" and "lint:watch" to your package.json:
  
   "scripts": {
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base src/",
-    "build-prod": "webpack -p && cp src/index.html dist/index.html",
-    "lint": "esw webpack.config.* src tools --color",
+    "build": "webpack -d && cp app/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base app/",
+    "build-prod": "webpack -p && cp app/index.html dist/index.html",
+    "lint": "esw webpack.config.* app tools --color",
     "lint:watch": "npm run lint -- --watch"
   },
 
 >npm install npm-run-all --save-dev
 
-"build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base src/",
-    "build-prod": "webpack -p && cp src/index.html dist/index.html",
-    "lint": "esw webpack.config.* src tools --color",
+"build": "webpack -d && cp app/index.html dist/index.html && webpack-dev-server --hot --inline --colors --progress --content-base app/",
+    "build-prod": "webpack -p && cp app/index.html dist/index.html",
+    "lint": "esw webpack.config.* app tools --color",
     "lint:watch": "npm run lint -- --watch",
     "start": "npm-run-all --parallel build lint:watch"
 
@@ -361,3 +361,9 @@ npm i  @types/enzyme enzyme-to-json -D
 npm i -D @types/enzyme-adapter-react-16
 
 npm install @types/react-test-renderer
+
+## Lazy Images
+
+[lazy-image-loading-in-react-the-full-breakdown](https://medium.com/@rossbulat/lazy-image-loading-in-react-the-full-breakdown-4026619de2df)
+
+>npm install --save react-lazy-load

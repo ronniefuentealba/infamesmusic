@@ -4,9 +4,9 @@
   "description": "Infames Music Label App",
   "main": "index.tsx",
   "scripts": {
-    "build": "webpack --mode=development -d && webpack-dev-server --hot --inline --colors --progress --content-base src/",
+    "build": "webpack --mode=development -d && webpack-dev-server --hot --inline --colors --progress --content-base app/",
     "build-prod": "webpack -p --mode=production",
-    "lint": "esw webpack.config.* ./ tools --color",
+    "lint": "esw webpack.config.* /app tools --color",
     "lint:watch": "npm run lint -- --watch",
     "start": "npm-run-all --parallel build lint:watch",
     "test": "jest --config jest.config.js"
