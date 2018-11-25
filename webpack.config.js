@@ -7,6 +7,7 @@ const SRC_DIR = __dirname + '/src';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {
+  mode: 'development',
   entry: [SRC_DIR + '/index.tsx'],
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

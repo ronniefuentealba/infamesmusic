@@ -342,3 +342,20 @@ Add "lint" and "lint:watch" to your package.json:
 
 Run the app
 >npm start
+
+### Jest
+
+Let's install dependencies
+
+>npm install --save-dev jest @types/jest ts-jest babel-jest react-test-renderer
+
+Add to the scripts on package.json
+>"test": "jest"
+
+Enzyme however requires a separate installation, so run:
+
+>npm i --save-dev enzyme enzyme-adapter-react-16 
+
+npm i  @types/enzyme enzyme-to-json -D
+
+npm i -D @types/enzyme-adapter-react-16
