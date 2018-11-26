@@ -13,9 +13,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: SRC_DIR + '/index.html',
+      favicon: SRC_DIR + '/img/favicon.ico',
       filename: './index.html'
     }),
-    new ExtractTextPlugin('css/style.css')
+    new ExtractTextPlugin('css/style.[hash].css')
   ],
   module: {
     rules: [{
@@ -36,8 +37,26 @@ module.exports = {
         })
       },
       {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              context: '',
+              outputPath: 'images'
+            }
+          }
+        ]
+      },
+      {
         test: /\.tsx?$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {}
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -52,7 +71,7 @@ module.exports = {
   output: {
     path: DIST_DIR,
     publicPath: '/',
-    filename: 'js/bundle.js'
+    filename: 'js/bundle.[hash].js'
   },
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",

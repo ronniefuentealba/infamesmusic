@@ -362,8 +362,45 @@ npm i -D @types/enzyme-adapter-react-16
 
 npm install @types/react-test-renderer
 
-## Lazy Images
+## Material Ui
+> npm install @material-ui/core @material-ui/icons
 
-[lazy-image-loading-in-react-the-full-breakdown](https://medium.com/@rossbulat/lazy-image-loading-in-react-the-full-breakdown-4026619de2df)
+## prop-types
 
->npm install --save react-lazy-load
+You can use prop-types to document the intended types of properties passed to components.
+
+Installation
+>npm install --save prop-types
+
+## File-loader
+To begin, you'll need to install file-loader:
+
+>$ npm install file-loader --save-dev
+
+Import (or require) the target file(s) in one of the bundle's files:
+
+// bundle file
+import img from './file.png'
+
+Then add the loader to your webpack config. For example:
+
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              context: '',
+              outputPath: 'images'
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
