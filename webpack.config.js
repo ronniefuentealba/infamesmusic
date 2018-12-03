@@ -13,7 +13,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: SRC_DIR + '/index.html',
-      favicon: SRC_DIR + '/img/favicon.ico',
+      favicon: SRC_DIR + '/assets/img/favicon.ico',
       filename: './index.html'
     }),
     new ExtractTextPlugin('css/style.[hash].css')
@@ -76,7 +76,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".scss", ".css", ".ts", ".tsx", ".js", ".jsx"]
+    extensions: [ ".tsx", ".js"]
   },
   output: {
     path: DIST_DIR,

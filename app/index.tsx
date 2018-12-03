@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 require('typeface-roboto');
-import './styles/main.scss';
+import './assets/styles/main.scss';
 import { App } from './app';
 
 ReactDOM.render(
