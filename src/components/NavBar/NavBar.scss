@@ -1,0 +1,12 @@
+header {
+  &.navbar {
+    background-color: black;
+    h1.navbar--logo {
+      margin: 0px 0px;
+      width: 60px;
+      img {
+        display: block;
+      }
+    }
+  }
+}

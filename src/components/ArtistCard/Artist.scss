@@ -1,0 +1,34 @@
+.card {
+  background-size: cover;
+  height: auto;
+  margin: 0;
+  padding-top: 100%;
+  position: relative;
+  width: auto;
+
+  .card {
+    &__body {
+      position: absolute;
+      top: 50%;
+      &--title {
+        background-color: black;
+        color: white;
+        display: none;
+        font-size: 3em;
+        margin: 0;
+        text-align: center;
+      }
+      &--subtitle {
+      }
+      &--text {
+      }
+    }
+  }
+  &:hover {
+    .card__body {
+      &--title {
+        display: block;
+      }
+    }
+  }
+}

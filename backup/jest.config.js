@@ -1,0 +1,22 @@
+module.exports = {
+    "roots": [
+        "<rootDir>/app"
+    ],
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "moduleNameMapper": {
+        "Hello": "<rootDir>/app/components/hello.tsx"
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupTestFrameworkScriptFile": "<rootDir>/app/setupEnzyme.tsx",
+}

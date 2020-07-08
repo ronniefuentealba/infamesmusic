@@ -1,0 +1,35 @@
+@import './../../styles/partials/variables';
+
+.rrss-menu {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  &-link {
+    list-style: none;
+    margin: 30px;
+    padding: 0;
+    a {
+      color: #ffffff;
+      font-size: 30px;
+      &:hover {
+        text-decoration: none;
+        &.facebook {
+          color: $facebook-color;
+        }
+        &.twitter {
+          color: $twitter-color;
+        }
+        &.instagram {
+          color: $instagram-color;
+        }
+        &.soundcloud {
+          color: $soundcloud-color;
+        }
+        &.youtube {
+          color: $youtube-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.featured {
+  background-color: yellow;
+  padding: 20px;
+  &.event {
+    background-color: red;
+  }
+}

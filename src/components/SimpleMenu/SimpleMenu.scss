@@ -1,0 +1,24 @@
+nav {
+  &.main-nav {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+  }
+  .main-nav {
+    &__menu-container {
+      .main-nav--menu-link {
+        margin-left: 20px;
+        a {
+          &.active {
+            border-bottom: solid 2px white;
+            color: white;
+          }
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

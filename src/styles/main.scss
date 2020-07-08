@@ -1,0 +1,11 @@
+@import 'partials/_variables';
+@import 'partials/_mixins';
+@import 'partials/_base';
+
+body {
+  .main-container {
+    background-color: #202020;
+    margin-bottom: 300px;
+    z-index: 2;
+  }
+}
