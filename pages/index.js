@@ -14,7 +14,20 @@ export default function Index (props) {
   
   const res = data.data.slice(0,10)
   
-  const featuredIg = res[0].media_url;
+  const theImages = [{
+    media_url: '/tw.jpg'
+  },{
+    media_url: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg"
+  },{
+    media_url: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+  },{
+    media_url: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+  }]
+  const imageToShow = theImages[Math.floor(Math.random() * theImages.length)];
+
+  const featuredIg = imageToShow.media_url
+  const featuredVideo = res[8].media_url;
+  console.log(featuredVideo)
 
   const styles = {
     backgroundImage: `url(${featuredIg})`,
@@ -67,6 +80,10 @@ export default function Index (props) {
     display: "block",
   }
 
+  const stBGVideos = {
+    height: "100%"
+  }
+
   if (!data) return "Loading...";
   if (error) return "Error...";
   return (
@@ -75,7 +92,11 @@ export default function Index (props) {
       <p>Bacon ipsum dolor amet salami turducken drumstick pork belly bacon kevin, buffalo meatball pork loin. Jowl jerky beef, chuck strip steak venison tenderloin flank burgdoggen chislic hamburger pig chicken cow. Fatback t-bone pancetta cow capicola venison cupim. Ground round boudin tri-tip beef kielbasa.</p> */}
         <div className="grid-container">
           <div className="featuredIg grid-item">
-            <div style={styles} />
+            <div style={styles}>
+              <video autoPlay loop muted style={stBGVideos} id="myVideo">
+                <source src={featuredVideo} type="video/mp4"/>
+              </video>
+            </div>
             
             <Parallax style={intro} x={[10, -10]} styleOuter={stFeatureParallax} tagOuter="figure2">
               <p style={stColectivo}>Colectivo</p>
@@ -95,7 +116,9 @@ export default function Index (props) {
         </Parallax>
 
         <Infames infames={infames}/>
+
         <IgPics igFeed={res} />
+        
     </>
   )
 }

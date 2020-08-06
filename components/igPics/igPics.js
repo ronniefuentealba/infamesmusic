@@ -5,7 +5,7 @@ const PicsWrapper = {
   flexDirection: "row",
   flexWrap: "wrap",
   listStyle: "none",
-  margin: 0,
+  margin: "0 0 125px",
   padding: 0
 }
 
@@ -37,17 +37,17 @@ const IgVideo = props => (
 
 
 const IgPics = props => (
-  <ul style={PicsWrapper}>
+  <section style={PicsWrapper}>
     {props.igFeed.map(data => 
       data.media_type == "IMAGE" ?
-      (<li style={PicContainer} key={data.id}>
+      (<div style={PicContainer} key={data.id}>
         <IgPic src={data.media_url} />
-      </li>) :
-      (<li style={PicContainer} key={data.id}>
+      </div>) :
+      (<div style={PicContainer} key={data.id}>
         <IgVideo src={data.media_url} />
-      </li>)
+      </div>)
     )}
-  </ul>
+  </section>
 )
 
 export default IgPics;
