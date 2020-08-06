@@ -1,0 +1,15 @@
+.RrssBar {
+  left: -94px;
+  position:fixed;
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  top:50vh;
+  .rrssLink {
+    float:left;
+    margin-right:20px;
+    text-decoration: none;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

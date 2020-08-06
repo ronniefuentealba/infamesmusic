@@ -1,10 +1,6 @@
 
 const NavButtons = [
     {
-        label: "Infames",
-        path: "/"
-    },
-    {
         label: "Crew",
         path: "/crew"
     },

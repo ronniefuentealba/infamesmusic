@@ -1,16 +1,8 @@
 import React, { useState } from "react";
+import * as require from 'requirejs';
 import Head from "next/head";
 import {Header, SocialBar, Subscribe} from "./../components";
 import socialButtons from "./../config/rrss"
-
-import { Parallax } from 'react-scroll-parallax';
-
-const ParallaxImage = () => (
-    <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
-        <img src="./tw.jpg" />
-    </Parallax>
-);
-
 import "./layout.scss";
 
 export default function SiteLayout({ children }) {
@@ -50,10 +42,22 @@ export default function SiteLayout({ children }) {
         <link rel="canonical" href="https://infames.cl/" />
 
         <title>INFAMES Music - Sello discográfico independiente</title>
+
+        require.config({
+  shim: {
+    'facebook' : {
+      exports: 'FB'
+    }
+  },
+  paths: {
+    'facebook': 'https://connect.facebook.net/en_US/sdk.js'
+  }
+})
+require(['fb']);
+
       </Head>
 
       <Header appTitle={appTitle} />
-      <ParallaxImage/>
 
       {/* <p>      
         <button onClick={() => setCounter(counter + 1)}>
@@ -62,8 +66,10 @@ export default function SiteLayout({ children }) {
       </p> */}
 
       <div className="Content">{children}</div>
-      <SocialBar socialLinks={socialButtons} />
-      <Subscribe />
+      <footer className="footer">
+        <SocialBar socialLinks={socialButtons} />
+        <Subscribe />
+      </footer>
     </div>
   )
 }

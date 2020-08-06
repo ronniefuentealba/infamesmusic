@@ -2,7 +2,7 @@ import NavButton from "../navButton/navButton";
 import "./navBar.scss";
 
 const NavBar = props => (
-  <div className="NavBar">
+  <nav className="NavBar">
     {props.navButtons.map(button => (
       <NavButton
         key={button.path}
@@ -11,7 +11,7 @@ const NavBar = props => (
         position={button.position}
       />
     ))}
-  </div>
+  </nav>
 );
 
 export default NavBar;

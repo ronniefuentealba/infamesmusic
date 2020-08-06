@@ -1,4 +1,5 @@
 import SocialButton from "../socialButton/socialButton";
+import "./rrssBar.scss"
 
 const SocialBar = props => (
   <div className="RrssBar">

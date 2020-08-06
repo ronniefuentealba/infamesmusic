@@ -32,7 +32,7 @@
 
 [build-an-seo-friendly-head-component](https://www.creativebloq.com/how-to/build-an-seo-friendly-head-component-for-nextjsreact)
 
-###
+### Parallax
 [react-scroll-parallax](https://github.com/jscottsmith/react-scroll-parallax)
 
 ### Mailchimp

@@ -8,6 +8,7 @@ const Header = props => (
   <>
 
     <header>
+      <h1>INFAMES<br/>Music</h1>
       <NavBar navButtons={navButtons} />
     </header>
   </>

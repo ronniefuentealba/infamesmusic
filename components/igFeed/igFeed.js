@@ -1,16 +1,20 @@
 import IgFeedItem from "./igFeedItem"
+import "./igFeed.scss";
 
-const IgFeed = props => (
-  <div className="igFeed">
-    <h3>Feed</h3>
-    {props.igFeed.map(feed => (
-      <IgFeedItem
-        key={feed.date}
-        date={feed.date}
-        comment={feed.comment}
-      />
-    ))}
-  </div>
+const IgFeed = props => (  
+  <>
+    <div className="igFeedContainer">
+      <h3>Feed</h3>
+      {props.igFeed.map(data => (
+        <IgFeedItem
+          key={data.id}
+          timestamp={data.timestamp}
+          caption={data.caption}
+          imageURL={data.media_url}
+        />
+      ))}
+    </div>
+  </>
 )
 
 export default IgFeed

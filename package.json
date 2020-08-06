@@ -12,12 +12,16 @@
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
+    "fb-sdk-wrapper": "^1.1.0",
     "next": "^9.4.4",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-mailchimp-form": "^1.0.2",
-    "react-scroll-parallax": "^2.3.4"
+    "react-scroll-parallax": "^2.3.4",
+    "requirejs": "^2.3.6",
+    "swr": "^0.3.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.10.4"
