@@ -1,3 +1,5 @@
+import Image from './../../components';
+
 const PicsWrapper = {
   display: "flex",
   flexDirection: "row",
@@ -18,17 +20,33 @@ const PicItem = {
 
 const IgPic = props => (
   <>
-    <img style={PicItem} src={props.imageURL} />
+    <img style={PicItem} src={props.src} />
   </>
 )
 
+const IgVideo = props => (
+  <>
+    <video width="100%" controls>
+      <source src={props.src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </>
+)
+
+
+
+
 const IgPics = props => (
   <ul style={PicsWrapper}>
-    {props.igFeed.map(data => (
-      <li style={PicContainer}>
-        <IgPic imageURL={data.media_url}/>
-      </li>
-    ))}
+    {props.igFeed.map(data => 
+      data.media_type == "IMAGE" ?
+      (<li style={PicContainer} key={data.id}>
+        <IgPic src={data.media_url} />
+      </li>) :
+      (<li style={PicContainer} key={data.id}>
+        <IgVideo src={data.media_url} />
+      </li>)
+    )}
   </ul>
 )
 

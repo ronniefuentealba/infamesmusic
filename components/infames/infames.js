@@ -2,7 +2,8 @@ import Infame from './infame';
 
 const infamesWrapper = {
   display: "grid",
-  gridTemplateColumns: "20% 60% 20%"
+  gridTemplateColumns: "25% 50% 25%",
+  marginBottom: "150px"
 }
 const infamesContainer = {
   display: "grid",

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as require from 'requirejs';
 import Head from "next/head";
 import {Header, SocialBar, Subscribe} from "./../components";
 import socialButtons from "./../config/rrss"
@@ -8,7 +7,7 @@ import "./layout.scss";
 export default function SiteLayout({ children }) {
   const [counter, setCounter] = useState(0);
   const appTitle = `INFAMES Music`
-
+  const year = new Date().getFullYear()
   return (
     <div className="Layout">
       <Head>
@@ -43,18 +42,6 @@ export default function SiteLayout({ children }) {
 
         <title>INFAMES Music - Sello discográfico independiente</title>
 
-        require.config({
-  shim: {
-    'facebook' : {
-      exports: 'FB'
-    }
-  },
-  paths: {
-    'facebook': 'https://connect.facebook.net/en_US/sdk.js'
-  }
-})
-require(['fb']);
-
       </Head>
 
       <Header appTitle={appTitle} />
@@ -69,6 +56,8 @@ require(['fb']);
       <footer className="footer">
         <SocialBar socialLinks={socialButtons} />
         <Subscribe />
+        <p>CIRCA {year} © INFAMES Music. Todos los derechos reservados<br/>
+        <a href="mailto:contacto@infames.cl">contacto@infames.cl</a></p>
       </footer>
     </div>
   )

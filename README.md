@@ -16,7 +16,7 @@
 
 * Website: [leonardovega.com](https://leonardovega.com)
 * Twitter: [@leovp17](https://twitter.com/leovp17)
-* Github: [@leovp17](https://github.com/leovp17)
+* Github: [@leonardovega](https://github.com/leonardovega)
 
 ## References
 [next-js-practical-introduction-for-react-developers](https://auth0.com/blog/next-js-practical-introduction-for-react-developers-part-1/)
@@ -37,3 +37,6 @@
 
 ### Mailchimp
 [mailchimp-next-js](https://leerob.io/blog/mailchimp-next-js)
+
+### Next JS Video
+[next-videos](https://github.com/jeremybarbet/next-videos)

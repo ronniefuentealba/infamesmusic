@@ -5,13 +5,17 @@ import SiteLayout from "../layouts/MyLayout";
 import {IgFeed, Infames, IgPics} from "./../components";
 import {infames} from "../config";
 
-
 const fetcher = url => fetch(url).then(res => res.json());
 
+const BasicIgApiURl = "https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type, username,media_count,permalink,thumbnail,timestamp&access_token="+process.env.INSTRAGRAM_API_KEY;
+
 export default function Index (props) {
-  const { data, error } = useSWR('https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp&access_token=IGQVJYWVVXVHMzd2x1R3hKaGoyTXJYeUZAEMTNkRDhYMm1kLUZAZAV1RGQ1Y2YjBQS1IySWxwTXdEV2ZA5NFZASUHVMM1g1RFFsRnFGbjNUMkVsYmt6VC1CMjhnV09ieUpkVi1EbThENGhWNW1fYmdaaGFnZAQZDZD', fetcher, { initialData: props.posts })
-  const featuredIg = data.data[0].media_url;
- console.log("ig", data)
+  const { data, error } = useSWR(BasicIgApiURl, fetcher, { initialData: props.posts })
+  
+  const res = data.data.slice(0,10)
+  
+  const featuredIg = res[0].media_url;
+
   const styles = {
     backgroundImage: `url(${featuredIg})`,
     backgroundPosition: "center",
@@ -82,7 +86,7 @@ export default function Index (props) {
             
           </div>
           <div className="igFeed grid-item">
-            <IgFeed igFeed={data.data} />
+            <IgFeed igFeed={res} />
           </div>
         </div>
 
@@ -91,13 +95,13 @@ export default function Index (props) {
         </Parallax>
 
         <Infames infames={infames}/>
-        <IgPics igFeed={data.data} />
+        <IgPics igFeed={res} />
     </>
   )
 }
 
 export async function getStaticProps() {
-  const posts = await fetcher('https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type&access_token=IGQVJYWVVXVHMzd2x1R3hKaGoyTXJYeUZAEMTNkRDhYMm1kLUZAZAV1RGQ1Y2YjBQS1IySWxwTXdEV2ZA5NFZASUHVMM1g1RFFsRnFGbjNUMkVsYmt6VC1CMjhnV09ieUpkVi1EbThENGhWNW1fYmdaaGFnZAQZDZD')
+  const posts = await fetcher(BasicIgApiURl)
   return { props: { posts } }
 }
 
