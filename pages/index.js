@@ -11,44 +11,40 @@ const BasicIgApiURl = "https://graph.instagram.com/me/media?fields=id,caption,me
 
 export default function Index (props) {
   const { data, error } = useSWR(BasicIgApiURl, fetcher, { initialData: props.posts })
+
+    const res = data.data.slice(0,10)
   
-  const res = data.data.slice(0,10)
+    const igImages = data.data.filter(image => image.media_type == 'IMAGE')
+    const igVideos = data.data.filter(image => image.media_type == 'VIDEO')
   
-  const theImages = [{
-    media_url: '/tw.jpg'
-  },{
-    media_url: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg"
-  },{
-    media_url: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
-  },{
-    media_url: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
-  }]
-  const imageToShow = theImages[Math.floor(Math.random() * theImages.length)];
-
-  const featuredIg = imageToShow.media_url
-  const featuredVideo = res[8].media_url;
-  console.log(featuredVideo)
-
-  const styles = {
-    backgroundImage: `url(${featuredIg})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    filter: "blur(5px)",
-    height: "100%",
-    width: "100%",
-    position: "absolute"
-  }
-
-  const noFilter = {
-    backgroundImage: `url(${featuredIg})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    margin: "0 auto",
-    filter: "blur(0px)",
-    width: "60vh",
-    height: "60vh",
+    const imageToShow = igImages[Math.floor(Math.random() * igImages.length)];
+    const videoToShow = igVideos[Math.floor(Math.random() * igImages.length - 1)]
+  
+    const featuredIg = imageToShow.media_url
+  
+    const featuredVideo = videoToShow.media_url;
     
-  }
+    const styles = {
+      backgroundImage: `url(${featuredIg})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      filter: "blur(5px)",
+      height: "100%",
+      width: "100%",
+      position: "absolute"
+    }
+  
+    const noFilter = {
+      backgroundImage: `url(${featuredIg})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      margin: "0 auto",
+      filter: "blur(0px)",
+      width: "60vh",
+      height: "60vh",
+      
+    }
+  
 
   const intro = {
     margin: "0px",
@@ -84,13 +80,13 @@ export default function Index (props) {
     height: "100%"
   }
 
-  if (!data) return "Loading...";
+  if (!data) return "LOADING LOADING LOADING";
   if (error) return "Error...";
   return (
     <>
       {/* <h1>Welcome to INFAMES Music!</h1>
       <p>Bacon ipsum dolor amet salami turducken drumstick pork belly bacon kevin, buffalo meatball pork loin. Jowl jerky beef, chuck strip steak venison tenderloin flank burgdoggen chislic hamburger pig chicken cow. Fatback t-bone pancetta cow capicola venison cupim. Ground round boudin tri-tip beef kielbasa.</p> */}
-        <div className="grid-container">
+        <div className="grid-container home-part">
           <div className="featuredIg grid-item">
             <div style={styles}>
               <video autoPlay loop muted style={stBGVideos} id="myVideo">
@@ -111,13 +107,14 @@ export default function Index (props) {
           </div>
         </div>
 
-        <Parallax style={intro} x={[-20, 0]} styleOuter={stInfamesParallax} tagOuter="figure2">
+        <Parallax style={intro} x={[-40, 0]} styleOuter={stInfamesParallax} tagOuter="figure2">
           <p style={stInfames}>INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC</p>
         </Parallax>
 
         <Infames infames={infames}/>
-
-        <IgPics igFeed={res} />
+        <Parallax y={[-20,0]}  tagOuter="figure3">
+          <IgPics igFeed={res} />
+        </Parallax>
         
     </>
   )

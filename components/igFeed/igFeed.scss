@@ -1,8 +1,14 @@
-.igFeed {
-  display: grid;
-  align-content: center;
-  h3 {
-    font-size: 1em;
+
+  .igFeed {
+    display: grid;
+    align-content: center;
+    overflow-y: scroll;
+
+    .igFeedContainer {
+      overflow-y: scroll;
+      h3 {
+        font-size: 1em;
+      }
+      p{ font-size: 0.5em;}
+    }
   }
-  p{ font-size: 0.5em;}
-}

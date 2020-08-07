@@ -1,11 +1,13 @@
 import IgFeedItem from "./igFeedItem"
 import "./igFeed.scss";
 
-const IgFeed = props => (  
-  <>
+const IgFeed = props => {
+  const latestFeed = props.igFeed.slice(0,7)
+
+  return(<>
     <div className="igFeedContainer">
       <h3>Feed</h3>
-      {props.igFeed.map(data => (
+      {latestFeed.map(data => (
         <IgFeedItem
           key={data.id}
           timestamp={data.timestamp}
@@ -14,7 +16,9 @@ const IgFeed = props => (
         />
       ))}
     </div>
-  </>
-)
+  </>)
+}  
+  
+
 
 export default IgFeed

@@ -39,11 +39,15 @@ code {
     padding: 0;
     width: 100%;
 
+    .home-part {
+      overflow: hidden;
+      height: 100vh;
+    }
+
     .grid-container {
       display: grid;
       grid-template-columns: 66% 17%;
-      overflow: hidden;
-      height: 100vh;
+      
       
       @media (min-width: 800px) {
         grid-template-columns: 66% 20%;
@@ -53,7 +57,6 @@ code {
         background-color: black;
         overflow: hidden;
         position: relative;
-        max-height: 100vh;
       }
     }
 
