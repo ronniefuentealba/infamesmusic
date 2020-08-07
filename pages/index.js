@@ -112,6 +112,7 @@ export default function Index (props) {
         </Parallax>
 
         <Infames infames={infames}/>
+        
         <Parallax y={[-20,0]}  tagOuter="figure3">
           <IgPics igFeed={res} />
         </Parallax>
