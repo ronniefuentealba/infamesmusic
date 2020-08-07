@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Parallax } from 'react-scroll-parallax';
 import NavBar from "../navBar/navBar";
 import navButtons from "../../config/buttons";
 
@@ -8,7 +8,11 @@ const Header = props => (
   <>
 
     <header>
-      <h1>INFAMES<br/>Music</h1>
+      <div id="logoWrapper">
+      <Parallax y={[90, 0]}  tagOuter="figure4">
+        <h1><span>INFAMES<br/>Music</span></h1>
+      </Parallax>
+      </div>
       <NavBar navButtons={navButtons} />
     </header>
   </>

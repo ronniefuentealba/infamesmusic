@@ -1,6 +1,6 @@
 import React from 'react';
 import useSWR from 'swr';
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 import SiteLayout from "../layouts/MyLayout";
 import {IgFeed, Infames, IgPics} from "./../components";
 import {infames} from "../config";
@@ -38,7 +38,7 @@ export default function Index (props) {
       backgroundImage: `url(${featuredIg})`,
       backgroundPosition: "center",
       backgroundSize: "cover",
-      margin: "0 auto",
+      marginLeft: "13%",
       filter: "blur(0px)",
       width: "60vh",
       height: "60vh",
@@ -112,7 +112,7 @@ export default function Index (props) {
         </Parallax>
 
         <Infames infames={infames}/>
-        
+
         <Parallax y={[-20,0]}  tagOuter="figure3">
           <IgPics igFeed={res} />
         </Parallax>

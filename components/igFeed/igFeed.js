@@ -6,7 +6,7 @@ const IgFeed = props => {
 
   return(<>
     <div className="igFeedContainer">
-      <h3>Feed</h3>
+      <h3>feed</h3>
       {latestFeed.map(data => (
         <IgFeedItem
           key={data.id}

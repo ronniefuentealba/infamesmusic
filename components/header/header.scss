@@ -24,8 +24,31 @@ header {
   position: fixed;
   top:0;
   z-index: 1;
-  h1 {
-    margin:0;
-  
+  width: 100%;
+  figure4.parallax-outer {
+    display: block;
+    .parallax-inner {
+      height: 60vh;
     }
+  }
+   #logoWrapper {
+     height: 60vh;
+     display: grid;
+     grid-template-columns: 66%;
+     h1 {
+       color: #ffffff;
+       font-size: 3em;
+       margin:0 auto;
+       font-weight: 900;
+       line-height: 40px;
+       position:relative;
+       text-transform: uppercase;
+       width: 60vh;
+      span {
+         display: block;
+         right: -50px;
+         position:absolute;
+       }
+    }
+   }
 }
