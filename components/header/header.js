@@ -1,21 +1,18 @@
-import { Parallax } from 'react-scroll-parallax';
 import NavBar from "../navBar/navBar";
 import navButtons from "../../config/buttons";
+import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
 
 import "./header.scss";
 
-const Header = props => (
-  <>
 
-    <header>
-      <div id="logoWrapper">
-      <Parallax y={[90, 0]}  tagOuter="figure4">
-        <h1><span>INFAMES<br/>Music</span></h1>
-      </Parallax>
-      </div>
+
+const Header = (props) => {
+  return (
+  <>
+    <header >
       <NavBar navButtons={navButtons} />
     </header>
   </>
-);
+)};
   
 export default Header;

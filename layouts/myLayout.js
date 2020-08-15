@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import CssBaseline from '@material-ui/core/CssBaseline';
 import {Header, SocialBar, Subscribe} from "./../components";
 import socialButtons from "./../config/rrss"
 import "./layout.scss";
+import { useTheme } from "react-jss";
 
 export default function SiteLayout({ children }) {
+  const theme = useTheme()
   const [counter, setCounter] = useState(0);
   const appTitle = `INFAMES Music`
   const year = new Date().getFullYear()
   return (
     <div className="Layout">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta charSet="utf-8" />
     
         <meta name="description" content="Sello discográfico independiente"></meta>
@@ -41,10 +44,12 @@ export default function SiteLayout({ children }) {
         <link rel="canonical" href="https://infames.cl/" />
 
         <title>INFAMES Music - Sello discográfico independiente</title>
-
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
       </Head>
+        <CssBaseline />
 
-      <Header appTitle={appTitle} />
+      <Header theme={theme} appTitle={appTitle} />
 
       {/* <p>      
         <button onClick={() => setCounter(counter + 1)}>
@@ -54,10 +59,8 @@ export default function SiteLayout({ children }) {
 
       <div className="Content">{children}</div>
       <footer className="footer">
-        <SocialBar socialLinks={socialButtons} />
-        <Subscribe />
-        <p>CIRCA {year} © INFAMES Music. Todos los derechos reservados<br/>
-        <a href="mailto:contacto@infames.cl">contacto@infames.cl</a></p>
+        <SocialBar theme={theme} socialLinks={socialButtons} />
+        <Subscribe theme={theme} />
       </footer>
     </div>
   )

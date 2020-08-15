@@ -1,12 +1,18 @@
 import IgFeedItem from "./igFeedItem"
-import "./igFeed.scss";
+import { createUseStyles } from "react-jss"
 
+const useStyles = createUseStyles({
+  igFeedContainer: {
+    color: 'white',
+    margin: '0 30% 0 0'
+  }
+})
 const IgFeed = props => {
-  const latestFeed = props.igFeed.slice(0,7)
+  const classes = useStyles()
+  const latestFeed = props.igFeed.slice(0,3)
 
   return(<>
-    <div className="igFeedContainer">
-      <h3>feed</h3>
+    <div className={classes.igFeedContainer}>
       {latestFeed.map(data => (
         <IgFeedItem
           key={data.id}

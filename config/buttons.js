@@ -5,8 +5,8 @@ const NavButtons = [
         path: "/crew"
     },
     {
-        label: "e-shop",
-        path: "/e-shop"
+        label: "Menú",
+        path: ""
     }
 ]
 
