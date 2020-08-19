@@ -1,0 +1,17 @@
+.scrollDownWrap {
+  border: 1px solid #fff;
+  border-radius: 55px;
+  margin: 100px auto 0;
+  position:relative;
+  height: 55px;
+  width: 55px;
+  & span {
+    color: #fff;
+    display:block;
+    padding-left:23px;
+    padding-top:4px;
+    margin:0 auto;
+    transform: rotate(90deg);
+  }
+
+}

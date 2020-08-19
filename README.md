@@ -40,3 +40,8 @@
 
 ### Next JS Video
 [next-videos](https://github.com/jeremybarbet/next-videos)
+
+### Animations
+#### SVG
+[svg-line-animation-works](https://css-tricks.com/svg-line-animation-works/)
+[SVG Rotating Circle Loader](https://codepen.io/madebygus/pen/EjBvXR/)

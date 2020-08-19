@@ -5,7 +5,7 @@
     }
 @font-face {
   font-family: 'MonumentExtended-UltraBold';
-      src: url('/fonts/MonumentExtended-UltraBold.otf');
+      src: url('/fonts/MonumentExtended-Ultrabold.otf');
     }
 * {
   box-sizing: border-box;
@@ -71,6 +71,13 @@ code {
     }
   }
   footer {
-    padding: 0 40px;
+    padding: 0 140px;
+    p {
+      clear:both;
+      &.manager {
+        margin-bottom: 100px;
+        padding-top:80px;
+      }
+    }
   }
 }

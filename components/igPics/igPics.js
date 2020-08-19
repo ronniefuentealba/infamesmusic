@@ -43,7 +43,8 @@ const IgVideo = props => (
   </>
 )
 
-const IgPics = props => (
+const IgPics = (props) => {
+  return (
   <section className="home-part" style={PicsWrapper}>
     <div className="mediaContainer" style={MediaContainer}>
       {props.igFeed.map(data => 
@@ -57,6 +58,6 @@ const IgPics = props => (
       )}
     </div>
   </section>
-)
+)}
 
 export default IgPics;

@@ -1,6 +1,7 @@
 @import "./../../theme/theme";
 
-.NavBar {
+.navWrapper {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,7 +9,7 @@
   width: 100%;
   padding: 40px 40px 0;
 
-  font-Family: 'MonumentExtended-UltraBold', sans-serif;
+  font-family: 'MonumentExtended-UltraBold', sans-serif;
   font-size: 1.5em;
   color: white;
   text-transform: uppercase;

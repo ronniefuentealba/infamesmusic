@@ -1,12 +1,8 @@
 import NavBar from "../navBar/navBar";
 import navButtons from "../../config/buttons";
-import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
-
 import "./header.scss";
 
-
-
-const Header = (props) => {
+const Header = () => {
   return (
   <>
     <header >

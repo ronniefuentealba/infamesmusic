@@ -1,0 +1,23 @@
+.downloadSection{
+  margin: 200px 0 200px;
+  .dowloadWrapper{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  h2 {
+    font-size:3em;
+    font-family: 'MonumentExtended-UltraBold', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    span {
+      display: block;
+      font-family:'UnifrakturMaguntia', sans-serif;
+      line-height: 70px;
+      font-size:3em;
+      font-weight: normal;
+      text-transform: capitalize;
+    }
+  }
+}

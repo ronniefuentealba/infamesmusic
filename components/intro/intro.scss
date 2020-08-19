@@ -1,0 +1,144 @@
+.spinner {
+  letter-spacing: 1.2px;
+  font-size:0.5em;
+  animation: rotate 30s linear infinite;
+  -webkit-animation: rotate 30s linear infinite;
+  -moz-animation: rotate 30s linear infinite;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.heading {
+  font-family: 'MonumentExtended-UltraBold', sans-serif;
+  font-size: 13em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  .divider {
+    float: left;
+  }
+}
+.introContainer {
+  background-color:black;
+  display:block;
+  height: 100vh;
+  max-height: 100vh;
+  position:relative;
+  width: 100%
+}
+.videoBG {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.gridWrapper {
+  display: grid;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width:100%;
+  grid-template-columns: 60% 40%;
+    @media (min-width: 800px) {
+      grid-template-columns: 60% 40%;
+    }
+}
+.commentsWrapper {
+  display: flex;
+  align-items: center;
+}
+.featuredWrapper {
+  display: flex
+}
+.featured {
+  background-image: url('/random/4tokaramazov.jpg');
+  background-size: cover;
+  height: 60vh;
+  margin: 120px 0 0 125px;
+  position: relative;
+  width: 56vh;
+}
+.featureHeading {
+  color: white;
+  font-family: 'MonumentExtended-UltraBold', sans-serif;
+  font-size: 3em;
+  float: right;
+  line-height: 1;
+  min-width: 400px;
+  position: absolute;
+  right:-322px;
+  margin-top:30px;
+  text-align: left;
+  text-transform: uppercase;
+  & span {
+    font-family: 'UnifrakturMaguntia', sans-serif;
+    font-size: 1.8em;
+      line-height: 1;
+    text-transform: capitalize;
+  }
+}
+.infamesTxt {
+  color: white;
+  font-size: 0.2em;
+  line-height:10px;
+  margin: 160px auto 0;
+  right: -53%;
+  width: 60%;
+  position: absolute
+}
+.featuredDescription {
+  bottom: -20px;
+  color: #fff;
+  display:block;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+.playlistWrap {
+  bottom: -16%;
+  right:-11%;
+  position: absolute;
+  color: red;
+  text-align: center;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: middle;
+  align-items: center;
+  & a {
+    color: #fff;
+    font-family:'UnifrakturMaguntia', sans-serif;
+    font-size: 1.5em;
+    position: absolute;
+    width: 100%;
+  }
+}

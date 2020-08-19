@@ -1,4 +1,6 @@
-import Infame from './infame';
+const Infame = props => (
+  <p>{props.artist}</p>
+);
 
 const infamesWrapper = {
   display: "grid",

@@ -1,15 +1,5 @@
-
-  .igFeed {
-    display: grid;
-    align-content: center;
-    overflow-y: scroll;
-    padding: 0 20px;
-
-    .igFeedContainer {
-      overflow-y: scroll;
-      h3 {
-        font-size: 1em;
-      }
-      p{ font-size: 0.5em;}
-    }
-  }
+.igFeedContainer {
+  color: white;
+  margin: 150px 15% 0 15%;
+  font-size: 1.2em;
+}

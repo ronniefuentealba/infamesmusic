@@ -1,15 +1,27 @@
-.RrssBar {
-  left: -94px;
+.rrssBar {
+  left: -130px;
+  margin:0;
+  padding:0;
   position:fixed;
   transform: rotate(-90deg);
   text-transform: uppercase;
-  top:50vh;
-  .rrssLink {
+  top:45vh;
+  .rrssItem {
+    color: white;
+    font-size:1.2em;
     float:left;
-    margin-right:20px;
+    margin:0;
+    margin-right:5px;
+    padding:0;
     text-decoration: none;
+    &:focus, &:hover {
+      color: red;
+    }
     &:last-child {
       margin-right: 0;
+    }
+    &.divider:last-child {
+      display:none;
     }
   }
 }

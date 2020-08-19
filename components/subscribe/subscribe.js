@@ -3,25 +3,6 @@ import Mailchimp from 'react-mailchimp-form';
 import "./subscribe.scss";
 
 import { toast, ToastContainer } from 'react-nextjs-toast'
-import { createUseStyles } from 'react-jss';
-
-const useStyles = createUseStyles({
-  subsButton: {
-    background: 'none',
-    border: 'none',
-    color: '#fff',
-    fontFamily: 'MonumentExtended-UltraBold, sans-serif',
-    fontSize: '1.5em',
-    margin: 0,
-    padding: 0,
-    textTransform: 'uppercase',
-    cursor: 'pointer',
-    
-  },
-  txt: {
-    color: '#fff'
-  }
-})
 
 const showSubscribeForm = () => {
   toast.notify(<SubscribeWrapper />, {
@@ -64,12 +45,11 @@ const SubscribeWrapper = () => {
 }
 
 const Subscribe = () => {
-  const classes = useStyles()
 
   return (
     <div className="subscribe">
-      <button className={classes.subsButton}  onClick={showSubscribeForm}>Suscríbete</button>
-      <p className={classes.txt}>Recibe noticias y singles directamente en tu email.</p>
+      <button className={'subsButton'}  onClick={showSubscribeForm}>Suscríbete</button>
+      <p className={'txt'}>Recibe noticias y singles directamente en tu email.</p>
       <ToastContainer align={"left"} />
     </div>
       );

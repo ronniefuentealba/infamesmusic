@@ -3,7 +3,9 @@ export IgFeed from './igFeed/IgFeed';
 export NavBar from './navBar/navBar';
 export SocialBar from './rrssBar/rrssBar';
 export Subscribe from './subscribe/subscribe';
-export Infames from './infames/infames'
-export IgPics from './igPics/igPics'
-export Intro from './intro/intro'
-export ScrollDown from './scrollDown/scrollDown'
+export Infames from './infames/infames';
+export IgPics from './igPics/igPics';
+export Intro from './intro/intro';
+export ScrollDown from './scrollDown/scrollDown';
+export SiteMap from './siteMap/siteMap';
+export Downloads from './downloads/downloads';
