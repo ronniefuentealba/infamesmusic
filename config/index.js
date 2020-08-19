@@ -1,5 +1,3 @@
-const { default: DownloadsDB } = require("./downloadsDB");
-
 export infames from './infames';
 export igFeed from './igFeed';
 export NavButtons from './buttons';

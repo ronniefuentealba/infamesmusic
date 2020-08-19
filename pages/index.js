@@ -3,10 +3,8 @@ import useSWR from 'swr';
 import SiteLayout from "../layouts/MyLayout";
 import VisibilitySensor from 'react-visibility-sensor'
 import { Parallax } from 'react-scroll-parallax';
-import {Infames, IgPics, Intro} from "../components";
+import {Infames, IgPics, Intro, YoutubePlaylist, Downloads, Shop} from "../components";
 import {infames} from "../config";
-import Downloads from '../components/downloads/downloads';
-import Shop from '../components/shop/shop';
 
 const StInfames= {
     color: "black",
@@ -51,6 +49,7 @@ export default function Index (props) {
         <VisibilitySensor partialVisibility onChange={onChange}>
             <IgPics igFeed={res} />
       </VisibilitySensor>
+      <YoutubePlaylist />
       <Shop />
       <Downloads />
         

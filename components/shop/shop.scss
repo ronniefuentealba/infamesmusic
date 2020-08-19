@@ -8,4 +8,10 @@
     font-size:2em;
     text-transform: uppercase;
   }
+  .productsWrapper{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
 }

@@ -9,3 +9,5 @@ export Intro from './intro/intro';
 export ScrollDown from './scrollDown/scrollDown';
 export SiteMap from './siteMap/siteMap';
 export Downloads from './downloads/downloads';
+export Shop from './shop/shop'
+export YoutubePlaylist from './youtubePlaylist/youtubePlaylist';
