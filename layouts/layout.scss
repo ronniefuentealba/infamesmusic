@@ -49,8 +49,9 @@ code {
     width: 100%;
 
     .home-part {
+      display: flex;
+      height: 99vh;
       overflow: hidden;
-      height: 100vh;
     }
 
     .grid-container {

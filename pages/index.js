@@ -29,14 +29,33 @@ export default function Index (props) {
   const res = data.data.slice(0,10)
 
   function onChange (isVisible) {
-    console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+    const header = document.querySelector('header nav.navWrapper')
+    const rrssBars = document.querySelectorAll('footer .rrssBar .rrssItem')
+    const subscribeButton = document.querySelector('footer .subscribe .subsButton')
+    const subscribeTxt = document.querySelector('footer .subscribe .txt')
+    if(isVisible){
+      header.style.color =  'white'
+      rrssBars.forEach(rrssBar => rrssBar.style.color =  'white')
+      subscribeButton.style.color =  'white'
+      subscribeTxt.style.color =  'white'
+      console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+    } else {
+      header.style.color = 'black'
+      rrssBars.forEach(rrssBar => rrssBar.style.color =  'black')
+      subscribeButton.style.color = 'black'
+      subscribeTxt.style.color = 'black'
+      console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+
+    }
   }
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
     <>
+    <VisibilitySensor partialVisibility onChange={onChange}>
       <Intro comments={res}/>
+    </VisibilitySensor>
 
       <Parallax x={[-40, 0]} tagOuter="figure2">
         <p style={StInfames}>INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC</p>
@@ -45,12 +64,15 @@ export default function Index (props) {
       <Parallax y={[-20,0]}  tagOuter="figure3">
         <Infames infames={infames}/>
       </Parallax>
-        
-        <VisibilitySensor partialVisibility onChange={onChange}>
-            <IgPics igFeed={res} />
-      </VisibilitySensor>
+      
+      <IgPics igFeed={res} />
+
       <YoutubePlaylist />
-      <Shop />
+
+      <VisibilitySensor partialVisibility offset={{top:250}} minTopValue={250} onChange={onChange}>
+        <Shop />
+      </VisibilitySensor>
+
       <Downloads />
         
     </>

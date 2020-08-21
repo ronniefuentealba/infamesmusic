@@ -2,7 +2,7 @@ import { Parallax } from 'react-scroll-parallax';
 import './youtubePlaylist.scss';
 
 const YoutubePlaylist = () => (
-  <section className={'youtubeSection'}>
+  <section className={'youtubeSection home-part'}>
     <Parallax y={[0,0]} tagOuter="YoutubeSubtitle" styleInner={{  paddingTop:'0vh'}}>
         <svg width="100%" height="270" viewBox="0 0 50 270">
           <text className={'heading youtubeSubtitle'} fill="none" fillOpacity="1" x="0" y="250" textAnchor="middle" stroke={'black'} strokeWidth="2">YouTube</text>

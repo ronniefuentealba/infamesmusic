@@ -2,7 +2,7 @@ import {ProductsDB} from './../../config';
 import './shop.scss';
 
 const Shop = () => (
-  <section className={'shopSection'}>
+  <section className={'shopSection home-part'}>
     <h2>Shop</h2>
     <div className={'productsWrapper'}>
       {ProductsDB.map(product => (

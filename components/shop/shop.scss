@@ -1,6 +1,7 @@
 .shopSection {
   background-color: black;
   color: white;
+  flex-direction: column;
   padding: 50px 0;
   text-align: center;
   h2{
@@ -13,5 +14,6 @@
     grid-template-columns: 33% 33% 33%;
     margin: 0 auto;
     max-width: 1000px;
+    width: 100%;
   }
 }

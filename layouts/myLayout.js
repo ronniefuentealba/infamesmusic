@@ -6,8 +6,6 @@ import socialButtons from "./../config/rrss"
 import "./layout.scss";
 
 export default function SiteLayout({ children }) {
-
-  const [counter, setCounter] = useState(0);
   const appTitle = `INFAMES Music`
   const year = new Date().getFullYear()
 
@@ -50,12 +48,6 @@ export default function SiteLayout({ children }) {
         <CssBaseline />
 
         <Header appTitle={appTitle} />
-
-        {/* <p>      
-          <button onClick={() => setCounter(counter + 1)}>
-            Clicked {counter} Times
-          </button>
-        </p> */}
 
         <div className="Content">{children}</div>
         <footer className="footer">

@@ -3,6 +3,8 @@ import Image from './../../components';
 const PicsWrapper = {
   margin: 0,
   padding: 0,
+  display: 'flex',
+  alignItems: 'center',
 }
 
 const MediaContainer = {
