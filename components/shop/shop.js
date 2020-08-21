@@ -6,7 +6,7 @@ const Shop = () => (
     <h2>Shop</h2>
     <div className={'productsWrapper'}>
       {ProductsDB.map(product => (
-        <div className={'productWrapper'}>
+        <div key={product.id} className={'productWrapper'}>
           <img src={product.photo}/>
           <h4>{product.productName}</h4>
           <p>{product.price}</p>

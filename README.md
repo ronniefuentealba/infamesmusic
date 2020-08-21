@@ -45,3 +45,5 @@
 #### SVG
 [svg-line-animation-works](https://css-tricks.com/svg-line-animation-works/)
 [SVG Rotating Circle Loader](https://codepen.io/madebygus/pen/EjBvXR/)
+[Image Glitch effect](http://lab.iamrohit.in/demos/?t=%20%20Image%20glitch%20%20%20&d=%20Glitch%20effect%20for%20image%20%20%20%20&u=https://codepen.io/ZloDeeV/pen/avwyme)
+[45-css-glitch-effect](https://csspoint101.com/45-css-glitch-effect/)

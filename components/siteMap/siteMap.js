@@ -8,13 +8,13 @@ const SiteMap = (props) => (
     <div className={'navFooterWrapper'}>
     <h4>Crew</h4>
     <ul className={'navContainer'}>
-      {infames.map( infame => <NavItem>{infame.artist}</NavItem>)}
+      {infames.map( infame => <NavItem key={infame.artist}>{infame.artist}</NavItem>)}
     </ul>
   </div>
   <div className={'navFooterWrapper'}>
     <h4>Playlist</h4>
     <ul className={'navContainer'}>
-    {Playlist.map( playlist => <NavItem>{playlist.playlistName}</NavItem>)}
+    {Playlist.map( playlist => <NavItem key={playlist.playlistName}>{playlist.playlistName}</NavItem>)}
     </ul>
   </div>
   </nav>

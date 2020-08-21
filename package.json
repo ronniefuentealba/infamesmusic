@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.10.4",
     "dotenv": "^8.2.0",
-    "dotenv-webpack": "^2.0.0"
+    "dotenv-webpack": "^2.0.0",
+    "react-glitch-effect": "^2.0.2"
   }
 }

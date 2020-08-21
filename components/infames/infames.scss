@@ -1,0 +1,241 @@
+@keyframes noise-anim{
+  $steps: 20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+     $r: random(500);
+     clip:rect( $r +px,9999px, $r + random(100)+px, 0);
+     left: random(10) - 5%;
+     filter: saturate(random(100)/5);
+     transform: scale(1 + random(3)/10);
+    }
+  }
+}
+
+@keyframes noise-anim-2{
+  $steps: 20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+     $k: random(500);
+     clip:rect( $k +px,9999px, $k + random(50)+px, 0);
+     left: random(10) - 5%;
+     transform: scale(1 + random(3)/10);
+     filter: saturate(random(100)/5);
+    }
+  }
+}
+
+@mixin imgGlitch($name, $intensity, $width, $height, $top, $left) {
+  
+  
+  
+  $steps: $intensity;
+  
+  // Ensure the @keyframes are generated at the root level
+  @at-root {
+    // We need two different ones
+    @for $i from 1 through 2 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          #{percentage($i*(1/$steps))} {
+            clip: rect(
+              random($height)+px,
+              $width+px,
+              random($height)+px,
+              0
+            );
+            
+            -ms-transform: scale(1.2) skewX(random(30) - 30 + deg); 
+    -webkit-transform: scale(1.2) skewX(random(30) - 30 + deg);   
+    transform: scale(1.2) skewX(random(10) - 10 + deg);
+           
+          -webkit-filter: saturate(9);
+          filter: saturate(9);
+          }
+        }
+      }
+    }
+  }
+  
+  > img {
+    position: absolute;
+    top: $top+px;
+    left: $left+px;
+  }
+  > img:nth-child(2),
+  > img:nth-child(3){
+    clip: rect(0, 0, 0, 0); 
+  }
+  > img:nth-child(2) {
+    left: ($left + 2) + px;
+    animation: #{$name}-anim-1 2s infinite linear alternate-reverse;
+  }
+  > img:nth-child(3) {
+    left: ($left - 2) + px;
+    animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
+  }
+}
+
+.glitchSecondOption {
+
+  @include imgGlitch("glitch", 35, 1280, 768, 0, 0); 
+}
+
+.glitch, .glitch-inner, .glitch-inner-2 {
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+ }
+
+.glitch {
+  position: relative;
+  overflow: hidden;
+ }
+ .glitch-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .5;
+  clip: rect(60px, 9999px, 60px, 0);
+  animation: noise-anim 3s infinite step-end;
+ }
+ 
+ .glitch-inner-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .5;
+  clip: rect(60px, 9999px, 60px, 0);
+  animation: noise-anim-2 3s infinite step-end;
+ }
+
+a.crew-link{
+  display:inline-block;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  font-size:40px;
+  position: relative;
+  z-index: 11;
+  white-space: nowrap;
+
+.crew-hover{
+  display:none;
+  opacity: 0;
+  .crew-hover-img{
+    max-width: 300px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    height: auto;
+  }
+  .crew-hover-text{
+    @media (min-width: 800px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      -ms-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+      color: #fff;
+      display: block;
+    }
+    .text{
+      @media (min-width: 800px) {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        z-index: 13;
+      }
+
+    }
+    .second-text{
+      @media (min-width: 800px) {
+        position: absolute;
+    display: block;
+    bottom: -62px;
+    left: 0;
+    opacity: .6;
+    color: #000;
+    overflow: hidden;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-fill-color: transparent;
+    z-index: 13;
+      }
+      .second-text-inner{
+        position: relative;
+        display: block;
+        top: -38px;
+      }
+    }
+
+  }
+}
+}
+
+a:hover{
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  font-size:40px;
+  z-index: 12;
+.crew-hover{
+  @media (min-width: 800px) {
+    display: block;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 12;
+    overflow: hidden;
+  }
+    .crew-hover-img{
+    max-width: 300px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    height: auto;
+  }
+  .crew-hover-text{
+    @media (min-width: 800px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      -ms-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+      color: #fff;
+      display: block;
+      white-space: nowrap;
+    }
+    .text{
+      @media (min-width: 800px) {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        z-index: 13;
+      }
+
+    }
+    .second-text{
+      @media (min-width: 800px) {
+        position: absolute;
+        display: block;
+        bottom: -52px;
+        left: 0;
+        opacity: .6;
+        color: #000;
+        overflow: hidden;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #fff;
+        -webkit-text-fill-color: transparent;
+        z-index: 13;
+      }
+      .second-text-inner{
+        position: relative;
+        display: block;
+        top: -28px;
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+      }
+    }
+
+  }
+}
+}
