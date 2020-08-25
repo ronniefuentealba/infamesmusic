@@ -1,10 +1,11 @@
 import React from 'react';
 import useSWR from 'swr';
-import SiteLayout from "../layouts/MyLayout";
 import VisibilitySensor from 'react-visibility-sensor'
 import { Parallax } from 'react-scroll-parallax';
 import {Infames, IgPics, Intro, YoutubePlaylist, Downloads, Shop} from "../components";
 import {infames} from "../config";
+
+import {InfamesProvider, InfamesConsumer} from './../context/infamesProvider';
 
 const StInfames= {
     color: "black",
@@ -14,7 +15,7 @@ const StInfames= {
     margin: "0",
     textTransform: "uppercase",
     width: "1000%",
-    margin: "160px 0",
+    margin: "160px 0 300px",
     display: "block",
   }
 
@@ -27,53 +28,58 @@ export default function Index (props) {
     revalidateOnFocus: false })
 
   const res = data.data.slice(0,10)
-
+  
   function onChange (isVisible) {
     const header = document.querySelector('header nav.navWrapper')
     const rrssBars = document.querySelectorAll('footer .rrssBar .rrssItem')
     const subscribeButton = document.querySelector('footer .subscribe .subsButton')
     const subscribeTxt = document.querySelector('footer .subscribe .txt')
-    if(isVisible){
+    const dividers = document.querySelectorAll('footer .rrssItem.divider svg line')
+    if(!isVisible){
       header.style.color =  'white'
+      dividers.forEach(divider => divider.attributes.stroke.value = 'white')
       rrssBars.forEach(rrssBar => rrssBar.style.color =  'white')
       subscribeButton.style.color =  'white'
       subscribeTxt.style.color =  'white'
-      console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
     } else {
       header.style.color = 'black'
       rrssBars.forEach(rrssBar => rrssBar.style.color =  'black')
+      dividers.forEach(divider => divider.attributes.stroke.value = 'black')
       subscribeButton.style.color = 'black'
       subscribeTxt.style.color = 'black'
-      console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-
     }
+    console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
   }
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
     <>
-    <VisibilitySensor partialVisibility onChange={onChange}>
-      <Intro comments={res}/>
-    </VisibilitySensor>
+    <Intro comments={res}/>
+
+    <VisibilitySensor partialVisibility offset={{top:300, bottom:300}} minTopValue={0} onChange={onChange}>
+    <div>
 
       <Parallax x={[-40, 0]} tagOuter="figure2">
-        <p style={StInfames}>INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC</p>
+        <p style={StInfames}>INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC INFAMES MUSIC</p>
       </Parallax>
 
-      <Parallax y={[-20,0]}  tagOuter="figure3">
+      <Parallax y={[-20,0]}>
         <Infames infames={infames}/>
       </Parallax>
       
       <IgPics igFeed={res} />
 
       <YoutubePlaylist />
+    </div>
+    </VisibilitySensor>
 
-      <VisibilitySensor partialVisibility offset={{top:250}} minTopValue={250} onChange={onChange}>
         <Shop />
+
+      <VisibilitySensor partialVisibility onChange={onChange}>
+        <Downloads />
       </VisibilitySensor>
 
-      <Downloads />
         
     </>
   )
@@ -83,6 +89,3 @@ export async function getStaticProps() {
   const posts = await fetcher(BasicIgApiURl)
   return { props: { posts } }
 }
-
-Index.Layout = SiteLayout;
-

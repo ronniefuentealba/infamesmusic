@@ -19,31 +19,34 @@
 * Github: [@leonardovega](https://github.com/leonardovega)
 
 ## References
-[next-js-practical-introduction-for-react-developers](https://auth0.com/blog/next-js-practical-introduction-for-react-developers-part-1/)
+[next js practical introduction for react developers](https://auth0.com/blog/next-js-practical-introduction-for-react-developers-part-1/)
 
 ### Layout persistence in Next
 
-[persistent-layout-patterns-in-nextjs | Two Layouts](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/)
+[persistent layout patterns in nextjs | Two Layouts](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/)
 
 [layout-persistence-in-next-js | One Layout](https://dev.to/ozanbolel/layout-persistence-in-next-js-107g)
 
-### SEO in NEXTJS
-[improve-your-seo-and-social-sharing-cards](https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/)
+### Context Provider
+[next js react con context api](https://dev.to/edisonsanchez/next-js-react-con-context-api-3a05)
 
-[build-an-seo-friendly-head-component](https://www.creativebloq.com/how-to/build-an-seo-friendly-head-component-for-nextjsreact)
+### SEO in NEXTJS
+[improve your seo and social sharing cards](https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/)
+
+[build an seo friendly head component](https://www.creativebloq.com/how-to/build-an-seo-friendly-head-component-for-nextjsreact)
 
 ### Parallax
-[react-scroll-parallax](https://github.com/jscottsmith/react-scroll-parallax)
+[react scroll parallax](https://github.com/jscottsmith/react-scroll-parallax)
 
 ### Mailchimp
-[mailchimp-next-js](https://leerob.io/blog/mailchimp-next-js)
+[mailchimp next js](https://leerob.io/blog/mailchimp-next-js)
 
 ### Next JS Video
-[next-videos](https://github.com/jeremybarbet/next-videos)
+[next videos](https://github.com/jeremybarbet/next-videos)
 
 ### Animations
 #### SVG
-[svg-line-animation-works](https://css-tricks.com/svg-line-animation-works/)
+[svg line animation works](https://css-tricks.com/svg-line-animation-works/)
 [SVG Rotating Circle Loader](https://codepen.io/madebygus/pen/EjBvXR/)
 [Image Glitch effect](http://lab.iamrohit.in/demos/?t=%20%20Image%20glitch%20%20%20&d=%20Glitch%20effect%20for%20image%20%20%20%20&u=https://codepen.io/ZloDeeV/pen/avwyme)
-[45-css-glitch-effect](https://csspoint101.com/45-css-glitch-effect/)
+[45 css glitch effect](https://csspoint101.com/45-css-glitch-effect/)

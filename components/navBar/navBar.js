@@ -1,16 +1,20 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
+import {OverlayMenu} from './../index';
 import './navBar.scss'
 
 const NavButton = props => {
   return (
-  <Link href={props.path}>
-    <a className={`${'navItem'} ${
-          props.router.pathname === props.path ? "active" : ""
-        }`}>
-        <span className="Label">{props.label}</span>
-    </a>
-  </Link>
+    <>
+      <Link href={props.path}>
+        <a className={`${'navItem'} ${
+              props.router.pathname === props.path ? "active" : ""
+            }`}>
+            <span className="Label">{props.label}</span>
+        </a>
+      </Link>
+      <OverlayMenu/>
+    </>
 )};
 
 const NavBar = props =>{

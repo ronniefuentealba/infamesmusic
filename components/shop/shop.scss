@@ -15,5 +15,30 @@
     margin: 0 auto;
     max-width: 1000px;
     width: 100%;
+    .productWrapper{
+      padding: 0 20px;
+      .shopButtonsWrapper {
+        display: flex;
+        justify-content: space-between;
+        .shopButton {
+          background-color: black;
+          border: 1px solid #818181;
+          color: white;
+          display: block;
+          text-decoration: none;
+          &:first-child {
+            padding: 10px 50px; 
+          }
+          &:last-child {
+            padding: 10px 20px; 
+          }
+          &:hover {
+            background-color: white;
+            border-color: black;
+            color: black;
+          }
+        } 
+      }
+    }
   }
 }

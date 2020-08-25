@@ -1,5 +1,13 @@
 .igFeedContainer {
   color: white;
-  margin: 150px 15% 0 15%;
-  font-size: 1.2em;
+  margin: 150px 15% 0;
+  @media (min-width: 800px) {
+    margin: 150px 15% 0 0%;
+  }
+  .igFeedDate {
+  font-size: .8em;
+  }
+  .igFeedComment{
+    font-size: 1.2em;
+  }
 }

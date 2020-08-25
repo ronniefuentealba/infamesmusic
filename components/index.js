@@ -11,3 +11,5 @@ export SiteMap from './siteMap/siteMap';
 export Downloads from './downloads/downloads';
 export Shop from './shop/shop'
 export YoutubePlaylist from './youtubePlaylist/youtubePlaylist';
+export OverlayMenu from './overlayMenu/overlayMenu';
+export CrewCard from './crewCard/crewCard';

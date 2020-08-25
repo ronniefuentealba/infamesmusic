@@ -1,4 +1,4 @@
-import SiteLayout from "../layouts/MyLayout";
+import SiteTemplate from "../layouts/siteTemplate";
 
 export default function EShop() {
   return (
@@ -8,4 +8,4 @@ export default function EShop() {
   );
 }
 
-EShop.Layout = SiteLayout;
+EShop.Layout = SiteTemplate;

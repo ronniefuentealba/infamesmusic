@@ -45,7 +45,7 @@ code {
 
     font-family: $core-font;
     overflow: hidden;
-    padding: 0;
+    padding: 0 0 200px;
     width: 100%;
 
     .home-part {
@@ -69,6 +69,35 @@ code {
         position: relative;
       }
     }
+    .artistPage {
+      margin: 100px auto 0;
+      max-width: 1120px;
+      &__gridWrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        div:first-child{
+          max-width: 460px;
+        }
+        div:last-child{
+          .socialNetworkLinks {
+            ul, li {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+            ul{
+              display: block;
+              overflow: hidden;
+              li{
+                float: left;
+                padding-right:40px;
+              }
+            }
+          }
+        }
+      }
+      h2{ margin: 0;}
+    }
 
     a {
       color: inherit;
@@ -81,6 +110,12 @@ code {
       &.manager {
         margin-bottom: 100px;
         padding-top:80px;
+        a {
+          color: black;
+          &:hover {
+            color: red;
+          }
+        }
       }
     }
   }

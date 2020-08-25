@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Header, SocialBar, Subscribe, SiteMap} from "./../components";
-import socialButtons from "./../config/rrss"
-import "./layout.scss";
+import {Header, SocialBar, Subscribe, SiteMap} from "../components";
+import {InfamesConsumer} from './../context/infamesProvider'
+import socialButtons from "../config/rrss"
+import "./siteTemplate.scss";
 
-export default function SiteLayout({ children }) {
+export default function SiteTemplate({ children }) {
   const appTitle = `INFAMES Music`
   const year = new Date().getFullYear()
 
@@ -48,8 +49,11 @@ export default function SiteLayout({ children }) {
         <CssBaseline />
 
         <Header appTitle={appTitle} />
+        
+        <div className="Content">
+            {children}
+        </div>
 
-        <div className="Content">{children}</div>
         <footer className="footer">
           <SocialBar socialLinks={socialButtons} />
           <Subscribe />
